@@ -20,12 +20,23 @@ yarn create react-app oust --template typescript
 
 added `.travis.yml` for travis CI/CD
 
-## AWS
+## CI/CD
+### Static Site Hosting
 create public s3 bucket with the name of your website, permissioned with read/write access
 
 configure s3 bucket to be used as a static website host
 
-add IAM for travis with appropriate s3 access
+add policy to IAM for travis with appropriate s3 access
+
+add route 53 CNAME to point to bucket
+
+### Lambda
+create a lambda from scratch
+
+create policy for lambda with access to read/write, as well as the ability to set the role of a lambda
+
+attach the policy to the travis user deploying the code
+
 
 ## git
 initialize repo
