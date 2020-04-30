@@ -18,6 +18,15 @@ yarn create react-app oust --template typescript
 ## config
 `"baseUrl": "src"` added to `tsconfig.json` to enable absolute paths within `src` directory
 
+added `.travis.yml` for travis CI/CD
+
+## AWS
+create public s3 bucket with the name of your website, permissioned with read/write access
+
+configure s3 bucket to be used as a static website host
+
+add IAM for travis with appropriate s3 access
+
 ## git
 initialize repo
 ```
@@ -29,5 +38,4 @@ add url for remote repo
 git remote add origin git@github.com:fongelias/oust.git
 ```
 (you can verify this step with `git remote -v`)
-
 
