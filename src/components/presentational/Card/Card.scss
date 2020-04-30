@@ -1,0 +1,75 @@
+@import 'scss/main.scss';
+
+$default-card-border: 1px solid $greyhound;
+$default-card-width: 100px;
+$default-card-height: 150px;
+
+.card {
+    width: $default-card-width;
+    height: $default-card-height;
+    margin: $sm-margin;
+
+    .innerContainer {
+        position: relative;
+        width: $default-card-width;
+        height: $default-card-height;
+        transition: easeInTransition(0.3s);
+        transform-style: preserve-3d;
+        transform: rotateY(0);
+        transition: easeInTransition(0.3s);
+
+        .face,
+        .back {
+            position: absolute;
+            backface-visibility: hidden;
+            width: $default-card-width;
+            height: $default-card-height;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &.isFlipped {
+            transform: rotateY(180deg);
+
+            &:hover {
+                transform: scale(1.1) rotateY(180deg);
+            }
+
+            &.magnifies {
+                position: fixed;
+                top: calc(50vh - #{$default-card-height} / 2);
+                left: calc(50vw - #{$default-card-width} / 2);
+                transform: scale(2) rotateY(180deg);
+                z-index: 1;
+            }
+        }
+    }
+}
+
+.defaultCardBack {
+    background-color: $white;
+
+    width: $default-card-width;
+    height: $default-card-height;
+    border: $default-card-border;
+    border-radius: $sm-border-radius;
+
+    h3 {
+        text-align: center;
+        font-size: $sm-font-size;
+    }
+}
+
+.emptyCardFace {
+    background-color: $white;
+    width: $default-card-width;
+    height: $default-card-height;
+    border: $default-card-border;
+    border-radius: $sm-border-radius;
+}

@@ -19,4 +19,5 @@ deploy:
     region: "us-east-1"
     role: "arn:aws:iam::072629470284:role/service-role/oust_getGame-role-8cf5pk98"
     handler_name: "handler"
+    runtime: "nodejs12.x"
     zip: src/lambdas/getGame.js

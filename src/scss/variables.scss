@@ -1,6 +1,8 @@
 /*-- Colors -- */
+$white: #ffffff;
 $black: #000000;
 $greyhound: #959595;
+$bleu: #3d64a3;
 $transparent: rgba(0,0,0,0);
 /*-- Typeography --*/
     /*-- Fonts --*/
@@ -10,7 +12,17 @@ $transparent: rgba(0,0,0,0);
     $sm-font-size: 20px;
     $lg-font-size: 40px;
     /*-- Color -- */
+    $link-color: $bleu;
 /*-- Borders --*/
     /*-- Color --*/
+    /*-- Radius --*/
+    $sm-border-radius: 5px;
+/*-- Spacing --*/
+    /*-- Padding --*/
+    $sm-padding: 5px;
+    /*-- Margin --*/
+    $sm-margin: 5px;
 /*-- Animation --*/
-$easeInTransition: ease-in 0.3s;
+@function easeInTransition($seconds) {
+    @return ease-in $seconds;
+}

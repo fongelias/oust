@@ -1,0 +1,14 @@
+@import 'scss/main.scss';
+
+.landingPage {
+    height: 100vh;
+
+    h1 {
+        font-size: $lg-font-size;
+    }
+
+    .aboutCardBody {
+        font-size: calc(#{$xs-font-size} / 2);
+        padding: $sm-padding;
+    }
+}
