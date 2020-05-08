@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './FlexBox.scss';
+import styles from './FlexBox.module.scss';
 
 
 type FlexDirection = 
@@ -39,13 +39,14 @@ function classNameFromFlexType(
     alignContent?: FlexAlignContent,
 ): ObjectOf<string, boolean> {
     const stringifyType = (classPrefix: string, propertyValue?: string) => propertyValue ? `${classPrefix}-${propertyValue}` : '';
+    const classNameFromType = (classPrefix: string, propertyValue?: string) => styles[stringifyType(classPrefix, propertyValue)]
 
     return {
-        [stringifyType('direction', direction)]: true,
-        [stringifyType('', wrap)]: true,
-        [stringifyType('justify', justify)]: true,
-        [stringifyType('align-items', alignItems)]: true,
-        [stringifyType('align-content', alignContent)]: true,
+        [classNameFromType('direction', direction)]: true,
+        [classNameFromType('', wrap)]: true,
+        [classNameFromType('justify', justify)]: true,
+        [classNameFromType('align-items', alignItems)]: true,
+        [classNameFromType('align-content', alignContent)]: true,
     }
 }
 
@@ -69,7 +70,7 @@ export const FlexBox = ({
     alignContent,
 }: IFlexBoxProps) => (
     <div className={cx(
-        'flexBox',
+        styles.flexBox,
         className,
         classNameFromFlexType(
             direction,

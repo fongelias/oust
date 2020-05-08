@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { FlexBox } from 'components/presentational/FlexBox/FlexBox';
+import { Redirect } from 'react-router-dom';
 
-import './Card.scss';
+import styles from './Card.module.scss';
 
 export interface IFlippable {
     initialIsFlipped?: boolean;
@@ -26,22 +27,21 @@ export const Card = ({
 }: ICardProps) => {
     const [isFlipped, setIsFlipped] = useState(initialIsFlipped);
     const toggleIsFlipped = () => {
-        console.log(isFlipped);
         setIsFlipped(initialState => !initialState)
     };
     return (
-        <section className="card">
+        <section className={styles.card}>
             <div
-                className={cx("innerContainer", {
-                    isFlipped,
-                    magnifies
+                className={cx(styles.innerContainer, {
+                    [styles.isFlipped]: isFlipped,
+                    [styles.magnifies]: magnifies
                 })}
                 onClick={toggleIsFlipped}
             >
-                <div className="face">
+                <div className={styles.face}>
                     { face }
                 </div>
-                <div className="back">
+                <div className={styles.back}>
                     { back }
                 </div>
             </div>
@@ -57,7 +57,7 @@ export const DefaultCardBack = ({
     title
 }: IDefaultCardBackProps) => (
     <FlexBox
-        className="defaultCardBack"
+        className={styles.defaultCardBack}
         direction="column"
         justify="center"
         alignItems="center"
@@ -74,7 +74,7 @@ export const EmptyCardFace = ({
     children
 }: IEmptyCardFace) => (
     <FlexBox
-        className="emptyCardFace"
+        className={styles.emptyCardFace}
         direction="column"
         justify="center"
         alignItems="center"
@@ -123,3 +123,24 @@ export const DescriptionCard = ({
         </EmptyCardFace>
     </OneSidedCard>
 )
+
+export interface ILinkCardProps {
+    frontTitle?: string
+    link: string
+}
+
+export const LinkCard = ({
+    frontTitle,
+    link
+}: ILinkCardProps) => {
+    const [isClicked, setIsClicked] = useState(false);
+    const onClick = () => setTimeout(() => setIsClicked(true), 300);
+
+    return !isClicked ? (
+        <div onClick={onClick}>
+            <DescriptionCard frontTitle={frontTitle}/>
+        </div>
+    ) : (
+        <Redirect to={link} />
+    )
+}

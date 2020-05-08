@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./InlineLink.scss";
+import styles from "./InlineLink.module.scss";
 
 export type AnchorTarget =
     "_blank" |
@@ -22,7 +22,7 @@ export const InlineLink = ({
     <a
         href={href}
         target={target}
-        className="inlineLink"
+        className={styles.inlineLink}
     >
         {children}
     </a>

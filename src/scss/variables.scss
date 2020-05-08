@@ -3,6 +3,8 @@ $white: #ffffff;
 $black: #000000;
 $greyhound: #959595;
 $bleu: #3d64a3;
+$dijon: #ffbf00;
+$american-rose: #ff033e;
 $transparent: rgba(0,0,0,0);
 /*-- Typeography --*/
     /*-- Fonts --*/
@@ -12,16 +14,23 @@ $transparent: rgba(0,0,0,0);
     $sm-font-size: 20px;
     $lg-font-size: 40px;
     /*-- Color -- */
-    $link-color: $bleu;
+    $outbound-link-color: $bleu;
+    $warning-action-color: $dijon;
+    $placeholder-text-color: $greyhound;
 /*-- Borders --*/
     /*-- Color --*/
+    $input-border-color: $black;
     /*-- Radius --*/
     $sm-border-radius: 5px;
 /*-- Spacing --*/
     /*-- Padding --*/
+    $xs-padding: 3px;
     $sm-padding: 5px;
     /*-- Margin --*/
+    $xs-margin: 3px;
     $sm-margin: 5px;
+    $md-margin: 7px;
+    $lg-margin: 10px;
 /*-- Animation --*/
 @function easeInTransition($seconds) {
     @return ease-in $seconds;

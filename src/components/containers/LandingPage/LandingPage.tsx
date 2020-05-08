@@ -1,13 +1,16 @@
 import React from 'react';
 import { FlexBox } from 'components/presentational/FlexBox/FlexBox';
-import { DescriptionCard } from 'components/presentational/Card/Card';
+import { DescriptionCard, LinkCard } from 'components/presentational/Card/Card';
 import { InlineLink } from 'components/presentational/InlineLink/InlineLink';
-import { AFFILIATE_LINKS, PERSONAL_SOCIAL_MEDIA_LINKS } from 'constants/links';
+import { AFFILIATE_LINKS, PERSONAL_SOCIAL_MEDIA_LINKS } from 'constants/OutboundLinks';
+import { GAME_PAGE_PATH } from 'components/containers/GamePage/GamePage';
+import { JOIN_GAME_PAGE_PATH } from 'components/containers/JoinGamePage/JoinGamePage';
 
-import './LandingPage.scss';
+
+import styles from './LandingPage.module.scss';
 
 const AboutCardBody = () => (
-    <article className="aboutCardBody">
+    <article className={styles.aboutCardBody}>
         <h3>what is oust?</h3>
         <p>
             oust is like <InlineLink href={AFFILIATE_LINKS.COUP}>coup</InlineLink>, but online
@@ -22,18 +25,20 @@ const AboutCardBody = () => (
 
 export const LandingPage = () => (
     <FlexBox
-        className="landingPage"
+        className={styles.landingPage}
         direction="column"
         justify="center"
         alignItems="center"
     >
         <h1>oust</h1>
         <FlexBox>
-            <DescriptionCard
+            <LinkCard 
                 frontTitle="join game"
+                link={JOIN_GAME_PAGE_PATH}
             />
-            <DescriptionCard
+            <LinkCard
                 frontTitle="create game"
+                link={GAME_PAGE_PATH}
             />
             <DescriptionCard frontTitle="about">
                 <AboutCardBody />

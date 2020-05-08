@@ -1,0 +1,51 @@
+@import "scss/main.scss";
+
+.input {
+    display: inline-block;
+    position: relative;
+    border: 1px solid $greyhound;
+    padding: $xs-padding;
+
+    input {
+        -webkit-appearance: none;
+        border-style: none;
+        outline: none;
+        font-family: $font-family;
+        font-size: $sm-font-size;
+
+        ~ .inputBorder {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 100%;
+            border: 1px solid $transparent;
+            transition: easeInTransition(0.3s);
+        }
+
+        &:focus ~ .inputBorder {
+            right: 0;
+            border: 1px solid $input-border-color;
+        }
+
+        ~ label {
+            position: absolute;
+            top: calc(1px + #{$xs-padding});
+            left: calc(1px + #{$xs-padding});
+            pointer-events: none;
+            color: $placeholder-text-color;
+            font-family: $font-family;
+            font-size: $sm-font-size;
+            transition: easeInTransition(0.3s);
+        }
+    }
+
+    input:focus ~ label,
+    &.hasValue label {
+        top: 100%;
+        font-size: $xs-font-size;
+    }
+
+    &.hasValue label {
+        opacity: 0;
+    }
+}
